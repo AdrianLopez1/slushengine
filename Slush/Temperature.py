@@ -1,4 +1,4 @@
-''' Source Refrence: https://github.com/ameyer/Arduino-L6470/blob/master/L6470/L6470.cpp
+''' Source Reference: https://github.com/ameyer/Arduino-L6470/blob/master/L6470/L6470.cpp
 '''
 
 __author__ = 'mangokid'
@@ -9,10 +9,10 @@ import binascii
 import math
 
 
-class Temprature(sBoard):
+class Temperature(sBoard):
 
     def __init__(self):
-        """ basic init functions for the temprature module
+        """ basic init functions for the temperature module
         """
         self.address = 0x36
         self.initSensor()
@@ -36,7 +36,7 @@ class Temprature(sBoard):
             return (h & 0b0000001111111111)
 
     def calcTemp(self, tempraw):
-        """ calculate temprature with Steinhart-Hart equations paramters
+        """ calculate temperature with Steinhart-Hart equations paramters
         are rough defualts for 50k resistor
         """ 
         POTENTIAL_DIVIDER_RESISTOR = 100000
@@ -51,8 +51,8 @@ class Temprature(sBoard):
     
         return temp-273.15
 
-    def getTemprature(self):
-        """ return the temprature at the NTC junctino
+    def getTemperature(self):
+        """ return the temperature at the NTC junction
         """
         return self.calcTemp(self.getTempRaw())
 
